@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <h4 id="hello">임시글씨</h4>
+  <button class="btn btn-danger">버튼</button> -->
+
+  <div class="card">
+    <img src="" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">임시 제목</h5>
+      <p class="card-text">임시 가격</p>
+      <a href="#" class="btn btn-primary">더 알아보기</a>
+    </div>
+  </div>    
+  <button class="btn btn-danger">상품을 불러오는 버튼</button>
+  
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
+
+  // $('.btn-danger').click(function(){
+  //   $.ajax({
+  //     url: 'https://codingapple1.github.io/hello.txt',
+  //     type:'get'
+  //   }).done(function(data){ //ajax 성공 했을 때 코드   
+  //     $('#hello').html(data);
+  //   //}).fail(function(){ //ajax 실패 했을 때 코드
+  //   //}).always(function(){ //ajax 항상 실행할 코드
+  //   });
+  // });
+
+  $('.btn-danger').click(function(){
+    $.ajax({
+      url : 'https://codingapple1.github.io/data.json',
+      type : 'get'
+    }).done(function(data){
+      $('.card-title').html(data.model);
+      $('.card-text').html(data.price);
+      $('.card-img-top').attr('src', data.img);
+    });
+  });
+</script>
+</body>
+</html>
